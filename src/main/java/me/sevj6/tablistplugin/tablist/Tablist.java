@@ -12,14 +12,10 @@ import java.util.List;
 
 public class Tablist implements ITablist {
 
-    private final List<String> headerList;
-    private final List<String> footerList;
     private final TablistPlugin plugin;
 
     public Tablist(TablistPlugin plugin) {
         this.plugin = plugin;
-        this.headerList = plugin.getConfig().getStringList("Header");
-        this.footerList = plugin.getConfig().getStringList("Footer");
     }
 
     @Override
@@ -30,6 +26,8 @@ public class Tablist implements ITablist {
     @Override
     public void sendHeaderAndFooterList() {
         if (getOnlinePlayers().isEmpty()) return;
+        List<String> headerList = plugin.getConfig().getStringList("Header");
+        List<String> footerList = plugin.getConfig().getStringList("Footer");
         getOnlinePlayers().forEach(player -> {
             Component header = Component.text(parseText(String.join("\n", headerList), player));
             Component footer = Component.text(parseText(String.join("\n", footerList), player));
