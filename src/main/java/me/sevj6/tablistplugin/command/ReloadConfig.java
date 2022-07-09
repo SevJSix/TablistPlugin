@@ -18,7 +18,6 @@ public class ReloadConfig implements CommandExecutor {
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
         if (sender.hasPermission("tab.reload") || sender.isOp()) {
-            plugin.saveConfig();
             plugin.reloadConfig();
             sender.sendMessage(ChatColor.GREEN + "Successfully reloaded the config file.");
         } else {
