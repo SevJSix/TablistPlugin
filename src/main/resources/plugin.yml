@@ -1,0 +1,10 @@
+name: N3WF4GTab
+version: ${project.version}
+main: me.sevj6.tablistplugin.TablistPlugin
+api-version: 1.17
+authors: [ SevJ6 ]
+description: Simple tablist plugin
+commands:
+  tabrl:
+    description: reload the config file
+    permission: tab.reload
